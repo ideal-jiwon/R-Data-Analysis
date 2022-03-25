@@ -1,0 +1,112 @@
+---
+title: "MIS431 Spring 2022 - Mid-Term Data Analysis Project"
+author: "Submission Date - 04/03/2022"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+  word_document: default
+---
+
+## Addressing Employee Attrition
+
+
+## Introduction
+For the mid-semester project, we will be working with a data set from the field of Human Resources Analytics. This field is concerned with using employee data to optimize objectives such as employee satisfaction, productivity, project management, and most commonly, avoiding employee attrition. Ideally, companies would like to keep attrition rates (the proportion of employees leaving a company for other opportunities) as low as possible due to the variable costs and business disruptions that come with replacing productive employees on short notice.
+
+This project aims to perform the initial data analysis for a U.S.-based company that wants to keep employee attrition to a minimum. In the recent past, before Covid struck, the company had seen an increase in the rate of employee departures. Being a tech company, and with certain skills being rare, employee retention has been a challenge. This has taken a toll on their operations and ability to deliver quality products.
+
+
+```{r, results='hide', message=FALSE,warning=FALSE }
+library(tidyverse)
+employee_data <- read_csv('C:/RDataFiles/EmployeeData.csv')
+```
+
+
+## Employee Attrition Data
+
+The following data consists of 1,470 employee records for a U.S. based product company. The rows in this data frame represent an employee's attributes across the variables listed in the table below.
+
+| Variable        | Definition          |Data Type |
+|-----------------|-----------------|-----------------|
+|left_company	| Did the employee leave the company? (Yes/No)|	Factor |
+|department	| Department within the company	| Factor |
+| job_level	| Job Level (Associate - Vice President) | Factor |
+| salary	| Employee yearly salary (US Dollars)	| Numeric |
+| weekly_hours	| Self-reported average weekly hours spent on the job (company survey) | Numeric |
+| business_travel	| Level of required business travel	| Factor |
+| yrs_at_company	| Tenure at the company (years)	| Numeric |
+| yrs_since_promotion |	Years since last promotion	| Numeric |
+| previous_companies	| Number of previous companies for which the employee has worked	| Numeric |
+| job_satisfaction	| Self-reported job satisfaction (company survey)	| Factor |
+| performance_rating	| Most recent annual performance rating	| Factor |
+| marital_status	| Marital status (Single, Married, or Divorced)	| Factor |
+| miles_from_home	| Distance from employee address to office location	| Numeric |
+
+***While importing the data csv file, the data type may not match with the data type given above. Please convert them to appropriate data type, before doing any analysis ***
+
+
+
+## Exploratory Data Analysis
+
+
+Executives at this company have hired you as a data science consultant to identify the factors that lead to employees leaving their company. They would like for you to do an initial data analysis that is able to provide the insights on the likelihood of an employee leaving their company to make recommendations on how to minimize this behavior.
+
+Specifically, the broad questions that the executive team is trying to answer include:
+
+1. ***What are the factors that contribute to employees leaving the company based on summary statistics?***
+
+2. ***Without running any predictive models, just by using plots, can you provide insights for the top management?***
+
+The goal of your analysis should be discovering which variables drive the differences between employees who do and do not leave the company.You must think of at least 6 relevant questions that explore the relationship between left_company and the other variables in the employee data set.
+
+You must answer each question and provide supporting data summaries with either a summary data frame (using dplyr/tidyr) or a plot (using ggplot) or both.
+
+In total, you must have a minimum of 3 plots and 3 summary data frames for the exploratory data analysis section. Among the plots you produce, you must have at least 3 different types (ex. box plot, bar chart, histogram, heat map, etc…)
+
+
+See the example question below.
+
+**Is there a relationship between employees leaving the company and their current salary?**
+
+***Answer***: Yes, the data indicates that employees who leave the company tend to have lower salaries than employees who do not. Among the 237 employees that left the company, the average wage was $76,625. The pay is over $20,000 less than the average salary of employees who did not leave the company. 
+Among the employees who did not leave the company, only 10% have a salary that is less than or equal to $60,000. When looking at employees who did leave the company, this increases to 34%. 
+
+```{r}
+# Summary Table
+employee_data %>% group_by(left_company) %>% 
+                  summarise(n_employees = n(),
+                            min_salary = min(salary),
+                            avg_salary = mean(salary),
+                            max_salary = max(salary),
+                            sd_salary = sd(salary),
+                            pct_less_60k = mean(salary <= 60000))
+```
+
+
+```{r}
+# Data Visualization
+ggplot(data = employee_data, aes(x = salary, fill = left_company)) + 
+   geom_histogram(aes(y = ..density..), color = "white", bins = 20) +
+   facet_wrap(~ left_company, nrow = 2) +
+   labs(title = "Employee Salary Distribution by Status (Left the Comapny - Yes/No)",
+           x = "Salary (US Dollars", y = "Proportion of Employees")
+```
+
+
+
+## Summary of Results 
+Write a summary of your overall findings and recommendations to the executives at this company. Think of this section as your closing remarks of a presentation, where you summarize your key findings and make recommendations to improve HR processes at the company.
+
+Your summary should include:
+
+* Key findings from your Exploratory Data Analysis. What were the things that stuck out for you in this section and why are they important?
+
+* What insights can the company executives derive from the data visualization?
+
+* Your recommendations to the company on how to reduce employee attrition rates
+
+Detailed information on the format and the template of the project is available as a separate file
+
+--- End of Document ---
+

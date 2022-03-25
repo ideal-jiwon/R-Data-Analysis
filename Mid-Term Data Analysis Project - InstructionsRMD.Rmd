@@ -1,0 +1,96 @@
+---
+title: "Mid-Term Data Analysis Project Template"
+author: "Student Name"
+date: "04/03/2022"
+output: word_document
+---
+# Structure for Mid-Term Data Analysis Project Report
+The data analysis report is specifically for the client, and should address the challenges faced by the client. You should not look at this report as a term paper in a class or a report about a subject. This document is meant, primarily, to start an organized conversation between you and your client. The document should have the following structure. 
+
+## 1. Introduction. The introductions should include
+
+
+* Describe the problem. What substantive question are you trying to address?
+
+* Summary of the study and data, as well as any relevant substantive context, background, or framing issues.
+
+* The “big questions” answered by your data analyses, and summaries of your conclusions about these questions.
+
+* Brief outline of remainder of paper.
+
+
+## 2. Data and Model
+
+Divide the section into the following categories.
+
+- Data
+
+- Methods
+
+- Analysis
+
+- Results
+
+For every analysis, start with a question you want to address, and provide a detailed response using data, methods used, and finally the results. 
+
+## 3.	Conclusion(s)/Discussion. 
+
+The conclusion should reprise the questions and conclusions of the introduction, augmented by some additional observations or details gleaned from the analysis section. New questions, future work, etc., can also be provided in this section.
+
+## 4.	Appendix/Appendices. 
+
+This is the section, where you will provide the detailed information on the following.
+
+- Detailed tables from the R output
+
+- Plots from R output
+
+- R commands
+
+
+**Remove the following set of code before your generate the file**
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+Click the dropdown button along with the **Knit** icon and choose Knit to word. A word document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You are expected to generate R You can embed an R code chunk like this:
+
+```{r}
+cars
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+## R Cheatsheet for Markdown
+
+Is available in the following link.
+https://rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf
+
+For example to generate headers, use
+
+# Header1 
+## Header 2 
+### Header 3 
+#### Header 4
+##### Header 5
+###### Header 6
+
+* unordered list
+ + sub-item 1
+ + sub-item 2
+ - sub-sub-item 1 
+
+*italics* and **bold** 
+***bold with italics***
+
+--- End of Instructions ---
