@@ -1,5 +1,5 @@
 ---
-title: "MIS431 Spring 2022 - Mid-Term Data Analysis Project"
+title: "Employee related Data Analysis Project"
 author: "Submission Date - 04/03/2022"
 output:
   pdf_document: default
@@ -12,7 +12,7 @@ output:
 
 
 ## Introduction
-For the mid-semester project, we will be working with a data set from the field of Human Resources Analytics. This field is concerned with using employee data to optimize objectives such as employee satisfaction, productivity, project management, and most commonly, avoiding employee attrition. Ideally, companies would like to keep attrition rates (the proportion of employees leaving a company for other opportunities) as low as possible due to the variable costs and business disruptions that come with replacing productive employees on short notice.
+For the project, we will be working with a data set from the field of Human Resources Analytics. This field is concerned with using employee data to optimize objectives such as employee satisfaction, productivity, project management, and most commonly, avoiding employee attrition. Ideally, companies would like to keep attrition rates (the proportion of employees leaving a company for other opportunities) as low as possible due to the variable costs and business disruptions that come with replacing productive employees on short notice.
 
 This project aims to perform the initial data analysis for a U.S.-based company that wants to keep employee attrition to a minimum. In the recent past, before Covid struck, the company had seen an increase in the rate of employee departures. Being a tech company, and with certain skills being rare, employee retention has been a challenge. This has taken a toll on their operations and ability to deliver quality products.
 
